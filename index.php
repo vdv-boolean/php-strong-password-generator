@@ -33,27 +33,74 @@
             
 
             <!-- Form with GET method -->
-            <form action="" method="get" class="d-flex flex-column align-items-center m-4">
+            <form
+                method="get"
+                class="d-flex flex-column align-items-center m-4"
+            >
                 <div>
-                    <label for="length">Lunghezza password:</label>
-                    <input type="number" min="6" max="30" name="length" id="length" value="<?= $length ?>"> 
-                    <button class="btn btn-dark m-3">Genera</button>
+                    <label for="length">
+                        Lunghezza password:
+                    </label>
+                    <input
+                        type="number"
+                        min="6"
+                        max="30"
+                        name="length"
+                        id="length"
+                        value="<?= $length ?>"
+                    > 
+                    <button class="btn btn-dark m-3">
+                        Genera
+                    </button>
                 </div>
 
                 <!-- Advanced option -->
                 <div>
-                    <div> Opzioni avanzate:</div>
+                    <div>Opzioni avanzate:</div>
                     <div class="form-check">
-                        <input class="form-check-input"type="checkbox" name="advanced" id="advanced">
-                        <label class="form-check-label"for="advanced">Maiuscole</label>
+                        <input
+                            class="form-check-input"
+                            type="checkbox"
+                            name="caps"
+                            id="caps"
+                            <?= $caps_status ? 'checked' : '' ?>
+                        >
+                        <label
+                            class="form-check-label"
+                            for="caps"
+                        >
+                            Maiuscole
+                        </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input"type="checkbox" name="advanced" id="advanced">
-                        <label class="form-check-label"for="advanced">Numeri</label>
+                        <input
+                            class="form-check-input"
+                            type="checkbox"
+                            name="numbers"
+                            id="numbers"
+                            <?= $numbers_status ? 'checked' : '' ?>
+                        >
+                        <label
+                            class="form-check-label"
+                            for="numbers"
+                        >
+                            Numeri
+                        </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input"type="checkbox" name="advanced" id="advanced">
-                        <label class="form-check-label"for="advanced">Numeri</label>
+                        <input
+                            class="form-check-input"
+                            type="checkbox"
+                            name="symbols"
+                            id="symbols"
+                            <?= $symbols_status ? 'checked' : '' ?>
+                        >
+                        <label
+                            class="form-check-label"
+                            for="symbols"
+                        >
+                            Simboli
+                        </label>
                     </div>
                 </div>
                 
@@ -64,7 +111,7 @@
                     class="text-center m-4"
                 ><?php 
                     if ($length != "") {
-                        echo generateAdvancedPassword($length);
+                        echo generateAdvancedPassword($length, $caps_status, $numbers_status, $symbols_status);
                     } 
                 ?></textarea>
             </form>
