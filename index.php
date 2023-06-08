@@ -39,6 +39,23 @@
                     <input type="number" min="6" max="30" name="length" id="length" value="<?= $length ?>"> 
                     <button class="btn btn-dark m-3">Genera</button>
                 </div>
+
+                <!-- Advanced option -->
+                <div>
+                    <div> Opzioni avanzate:</div>
+                    <div class="form-check">
+                        <input class="form-check-input"type="checkbox" name="advanced" id="advanced">
+                        <label class="form-check-label"for="advanced">Maiuscole</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input"type="checkbox" name="advanced" id="advanced">
+                        <label class="form-check-label"for="advanced">Numeri</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input"type="checkbox" name="advanced" id="advanced">
+                        <label class="form-check-label"for="advanced">Numeri</label>
+                    </div>
+                </div>
                 
                 <!-- Text area for print generated password -->
                 <textarea  
@@ -47,7 +64,7 @@
                     class="text-center m-4"
                 ><?php 
                     if ($length != "") {
-                        echo generatePassword($length);
+                        echo generateAdvancedPassword($length);
                     } 
                 ?></textarea>
             </form>
