@@ -1,4 +1,5 @@
 <?php
+
     # Include functions from another php file
     include __DIR__ . '/functions.php';
 
@@ -17,16 +18,33 @@
         <h1>Strong Password Generator</h1>
         <h2>Genera una password sicura</h2>
 
+        <?php if ($length == "") { ?>
+
+            <div class="error-message">
+                <span><?=
+                    $error_message
+                ?></span>
+            </div>
+
+        <?php } ?>
+        
+
         <!-- Form with GET method -->
         <form action="" method="get">
             <div>
-                <label for="length">Numero di caratteri:</label>
-                <input type="number" name="length" id="length" value="<?= $length?>"> 
+                <label for="length">Lunghezza password:</label>
+                <input type="number" min="6" name="length" id="length" value="<?= $length ?>"> 
                 <button>Genera</button>
             </div>
             
             <!-- Text area for print generated password -->
-            <textarea name="" id="" cols="50" rows="1"><?= generatePassword($length)?></textarea>
+            <textarea  
+                rows="1"
+                cols="<?= $length ?>"
+            ><?php 
+                if ($length != "") {
+                    echo generatePassword($length);
+                } ?></textarea>
         </form>
     </body>
 </html>
