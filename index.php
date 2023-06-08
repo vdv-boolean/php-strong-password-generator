@@ -36,14 +36,15 @@
             <form action="" method="get" class="d-flex flex-column align-items-center m-4">
                 <div>
                     <label for="length">Lunghezza password:</label>
-                    <input type="number" min="6" name="length" id="length" value="<?= $length ?>"> 
-                    <button class="btn btn-dark">Genera</button>
+                    <input type="number" min="6" max="30" name="length" id="length" value="<?= $length ?>"> 
+                    <button class="btn btn-dark m-3">Genera</button>
                 </div>
                 
                 <!-- Text area for print generated password -->
                 <textarea  
                     rows="1"
-                    cols="<?= $length ?>"
+                    cols="35"
+                    class="text-center m-4"
                 ><?php 
                     if ($length != "") {
                         echo generatePassword($length);
