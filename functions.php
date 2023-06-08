@@ -1,5 +1,8 @@
 <?php
 
+    # Error message
+    $error_message = 'Nessun parametro valido inserito';
+
     # Number of password character
     $length = $_GET['length'];
 
