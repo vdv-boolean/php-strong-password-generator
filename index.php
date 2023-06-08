@@ -1,9 +1,7 @@
 <?php
-    $length = $_GET['length'];
-    function generateRandomString($length) {
-        return substr(str_shuffle(str_repeat($all_character='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($all_character)) )),1,$length);
-    }
-;
+    # Include functions from another php file
+    include __DIR__ . '/functions.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -15,8 +13,11 @@
         <title>Password Generator</title>
     </head>
     <body>
+        <!-- General titles -->
         <h1>Strong Password Generator</h1>
         <h2>Genera una password sicura</h2>
+
+        <!-- Form with GET method -->
         <form action="" method="get">
             <div>
                 <label for="length">Numero di caratteri:</label>
@@ -24,7 +25,8 @@
                 <button>Genera</button>
             </div>
             
-            <textarea name="" id="" cols="50" rows="1"><?= generateRandomString($length)?></textarea>
+            <!-- Text area for print generated password -->
+            <textarea name="" id="" cols="50" rows="1"><?= generatePassword($length)?></textarea>
         </form>
     </body>
 </html>
