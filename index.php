@@ -1,3 +1,11 @@
+<?php
+    $length = $_GET['length'];
+    function generateRandomString($length) {
+        return substr(str_shuffle(str_repeat($all_character='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($all_character)) )),1,$length);
+    }
+;
+?>
+
 <!DOCTYPE html>
 <html lang="it">
     <head>
@@ -11,12 +19,12 @@
         <h2>Genera una password sicura</h2>
         <form action="" method="get">
             <div>
-                <label for="lenght">Numero di caratteri:</label>
-                <input type="number" name="lenght" id="lenght"> 
-                button>Genera</button>
+                <label for="length">Numero di caratteri:</label>
+                <input type="number" name="length" id="length" value="<?= $length?>"> 
+                <button>Genera</button>
             </div>
             
-            <textarea name="" id="" cols="30" rows="1"></textarea>
+            <textarea name="" id="" cols="50" rows="1"><?= generateRandomString($length)?></textarea>
         </form>
     </body>
 </html>
