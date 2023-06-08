@@ -61,6 +61,21 @@
                         <input
                             class="form-check-input"
                             type="checkbox"
+                            name="no-caps"
+                            id="no-caps"
+                            <?= $nocaps_status ? 'checked' : '' ?>
+                        >
+                        <label
+                            class="form-check-label"
+                            for="no-caps"
+                        >
+                            Minuscole
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input
+                            class="form-check-input"
+                            type="checkbox"
                             name="caps"
                             id="caps"
                             <?= $caps_status ? 'checked' : '' ?>
@@ -111,7 +126,7 @@
                     class="text-center m-4"
                 ><?php 
                     if ($length != "") {
-                        echo generateAdvancedPassword($length, $caps_status, $numbers_status, $symbols_status);
+                        echo generateAdvancedPassword($length,$nocaps_status, $caps_status, $numbers_status, $symbols_status);
                     } 
                 ?></textarea>
             </form>

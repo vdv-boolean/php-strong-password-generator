@@ -12,15 +12,19 @@
     // }
 
     # Checkbox status
+    $nocaps_status = isset($_GET['no-caps']);
+    $caps_status = isset($_GET['caps']);
     $caps_status = isset($_GET['caps']);
     $numbers_status = isset($_GET['numbers']);
     $symbols_status = isset($_GET['symbols']);
 
     # Function for generate advanced random password
-    function generateAdvancedPassword($length, $caps_status, $numbers_status, $symbols_status) {
-        // $caps_character = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        // $number_character = '0123456789';
-        // $symbol_character = '!"#$%&\'()*+,-./:;<=>?@[\]^_`{|}~';
+    function generateAdvancedPassword($length, $nocaps_status, $caps_status, $numbers_status, $symbols_status) {
+        if ($nocaps_status) {
+            $nocaps_character = 'abcdefghijklmnopqrstuvwxyz';
+        } else {
+            $nocaps_character = '';
+        }
         if ($caps_status) {
             $caps_character = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
         } else {
@@ -36,5 +40,5 @@
         } else {
             $symbol_character = '';
         }
-        return substr(str_shuffle(str_repeat($merge_character=$caps_character . $number_character . $symbol_character . 'abcdefghijklmnopqrstuvwxyz', ceil($length/strlen($merge_character)) )),1,$length);
+        return substr(str_shuffle(str_repeat($merge_character=$caps_character . $number_character . $symbol_character . $nocaps_character, ceil($length/strlen($merge_character)) )),1,$length);
     }   
